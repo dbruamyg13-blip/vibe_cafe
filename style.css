@@ -1,0 +1,371 @@
+/* 기본 색상과 페이지 공통 스타일 */
+:root {
+  color-scheme: light;
+  font-family: "맑은 고딕", sans-serif;
+  color: #3f3026;
+  background: #faf6f0;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 40px 16px;
+  background: #faf6f0;
+  line-height: 1.6;
+}
+
+header,
+main {
+  width: 100%;
+  max-width: 520px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* 카페 이름과 소개 */
+header {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+header p:first-child {
+  margin: 0 0 4px;
+  font-size: 56px;
+  line-height: 1.2;
+}
+
+header h1 {
+  margin: 0;
+  color: #6b4226;
+  font-size: 32px;
+}
+
+header p:last-child {
+  margin: 6px 0 0;
+  color: #806b5b;
+}
+
+/* 탭 메뉴와 선택 상태 */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid #e6d9cb;
+}
+
+.tab-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 46px;
+  padding: 8px 12px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+  color: #a88d77;
+  font-weight: 700;
+}
+
+.tab-button:hover {
+  background: #f3ece3;
+}
+
+.tab-button.active {
+  border-bottom-color: #6b4226;
+  color: #6b4226;
+}
+
+.count-badge {
+  display: inline-flex;
+  min-width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #6b4226;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* 주문서 카드와 입력 요소 */
+form {
+  padding: 28px;
+  border: 1px solid #eee3d7;
+  border-radius: 16px;
+  background: #fffdf9;
+  box-shadow: 0 8px 24px rgba(74, 48, 29, 0.09);
+}
+
+form > div {
+  margin-bottom: 18px;
+}
+
+form > div > label {
+  display: block;
+  margin-bottom: 6px;
+  color: #513a29;
+  font-weight: 700;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #d8c9ba;
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+input:not([type="radio"]):not([type="checkbox"]):focus,
+select:focus,
+textarea:focus {
+  border-color: #6b4226;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(107, 66, 38, 0.16);
+}
+
+/* 사이즈와 추가 옵션은 가로로 배치하고 좁은 화면에서는 줄바꿈 */
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 0 0 18px;
+  padding: 14px;
+  border: 1px solid #e6d9cb;
+  border-radius: 10px;
+}
+
+legend {
+  padding: 0 6px;
+  color: #513a29;
+  font-weight: 700;
+}
+
+fieldset > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #6b4226;
+}
+
+fieldset label {
+  cursor: pointer;
+}
+
+/* 예상 금액과 주문 버튼 */
+#estimated-price {
+  margin: 24px 0 16px;
+  color: #6b4226;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+button {
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 1px solid #6b4226;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background: #6b4226;
+  color: #fff;
+}
+
+button[type="submit"]:hover {
+  background: #855631;
+}
+
+button[type="reset"] {
+  display: block;
+  margin: 10px auto 0;
+  background: #fff;
+  color: #6b4226;
+}
+
+button[type="reset"]:hover {
+  background: #f5eee6;
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(107, 66, 38, 0.28);
+  outline-offset: 2px;
+}
+
+/* 주문 완료 메시지 */
+#order-confirmation {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #e8f5df;
+  color: #28613a;
+  box-shadow: 0 4px 12px rgba(40, 97, 58, 0.08);
+}
+
+/* 주문 내역 카드와 하단 합계 */
+#orders-list {
+  display: grid;
+  gap: 12px;
+}
+
+.empty-orders {
+  margin: 0;
+  padding: 28px 16px;
+  border: 1px solid #eee3d7;
+  border-radius: 12px;
+  background: #fffdf9;
+  color: #806b5b;
+  text-align: center;
+}
+
+.order-card {
+  padding: 16px 16px 14px;
+  border: 1px solid #eee3d7;
+  border-left: 5px solid #6b4226;
+  border-radius: 10px;
+  background: #f4eadc;
+  box-shadow: 0 4px 12px rgba(74, 48, 29, 0.07);
+}
+
+.order-card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.order-customer {
+  margin: 0;
+  color: #513a29;
+  font-weight: 700;
+}
+
+.cancel-order {
+  min-height: 32px;
+  padding: 3px 10px;
+  border-color: #b99376;
+  background: #fffdf9;
+  color: #6b4226;
+  font-size: 14px;
+}
+
+.cancel-order:hover {
+  background: #ead8c5;
+}
+
+.order-details {
+  margin: 6px 0;
+}
+
+.order-card-footer {
+  display: block;
+  margin: 8px 0 0;
+  color: #806b5b;
+  font-size: 14px;
+}
+
+.order-request {
+  overflow-wrap: anywhere;
+}
+
+.orders-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid #e6d9cb;
+  border-radius: 10px;
+  background: #fffdf9;
+}
+
+.orders-summary p {
+  margin: 0;
+  color: #6b4226;
+  font-weight: 700;
+}
+
+#clear-orders {
+  flex-shrink: 0;
+  background: #fff;
+  color: #6b4226;
+}
+
+#clear-orders:hover {
+  background: #f5eee6;
+}
+
+/* 숨김 상태 */
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/* 휴대폰 화면 여백과 입력 배치 */
+@media (max-width: 480px) {
+  body {
+    padding: 28px 12px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  form {
+    padding: 20px 16px;
+  }
+
+  fieldset {
+    gap: 10px 14px;
+  }
+
+  .tabs {
+    gap: 0;
+  }
+
+  .tab-button {
+    flex: 1;
+    padding-right: 6px;
+    padding-left: 6px;
+    font-size: 14px;
+  }
+
+  .orders-summary {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
